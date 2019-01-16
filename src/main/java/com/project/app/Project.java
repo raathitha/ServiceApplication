@@ -50,6 +50,7 @@ public class Project {
 	    public Project(String project,Timestamp startdate,Timestamp enddate,Integer priority, Integer project_id,Integer manager_id)
 	    {
 	        super();
+	        this.project_id = project_id;
 	        this.project = project;
 		    this.startdate = startdate;
 	        this.enddate = enddate;
@@ -114,7 +115,7 @@ public class Project {
 	    {
 	        if (this == obj)
 	            return true;
-	        if (obj == null)
+	       /* if (obj == null)
 	            return false;
 	        if (getClass() != obj.getClass())
 	            return false;
@@ -154,7 +155,7 @@ public class Project {
 	            if (other.manager_id != null)
 	                return false;
 	        } else if (!manager_id.equals(other.manager_id))
-	            return false;
+	            return false;*/
 	       
 	        
 	        return true;
