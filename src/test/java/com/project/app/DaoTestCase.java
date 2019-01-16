@@ -31,13 +31,7 @@ public class DaoTestCase  {
 	@Autowired
 	private UserDaoImpl usrImpl;
 	
-	public DaoTestCase() {
-		   // Do nothing
-		}
-	public DaoTestCase(String tkd) {
-		   // Do nothing
-			this();
-		}
+	
 	@Test
 	public void test1() {
 	   assertEquals(2,2);

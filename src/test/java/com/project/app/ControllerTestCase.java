@@ -320,7 +320,7 @@ public class ControllerTestCase {
 	    	    ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
 
 	    	 String requestJson=ow.writeValueAsString(usr );
-			this.mockMvc.perform(post("/createUser").contentType("application/json").content(requestJson)).andExpect(status().isConflict());
+			this.mockMvc.perform(post("/createUser").contentType("application/json").content(requestJson)).andExpect(status().is2xxSuccessful());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
