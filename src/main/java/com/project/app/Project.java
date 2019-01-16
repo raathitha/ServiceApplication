@@ -43,17 +43,21 @@ public class Project {
 	@Column(name = "MANAGER_ID")
 	public Integer manager_id;
 	
+	@Column(name = "STATUS")
+	public String status;
+	
 	 public Project()
 	    {
 	        super();
 	    }
-	    public Project(String project,Timestamp startdate,Timestamp enddate,Integer priority, Integer project_id,Integer manager_id)
+	    public Project(String project,Timestamp startdate,Timestamp enddate,Integer priority, Integer project_id,Integer manager_id,String status)
 	    {
 	        super();
 	        this.project_id = project_id;
 	        this.project = project;
 		    this.startdate = startdate;
 	        this.enddate = enddate;
+	        this.status = status;
 	        this.priority = priority;
 	        this.manager_id = manager_id;
 	    }

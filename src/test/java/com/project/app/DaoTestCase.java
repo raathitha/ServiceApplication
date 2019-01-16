@@ -15,10 +15,12 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import junit.framework.TestCase;
+
 @ContextConfiguration(locations="classpath:ServiceAppln-servlet.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 
-public class DaoTestCase {
+public class DaoTestCase  {
 
 	@Autowired
 	private TaskDaoImpl tkImpl;
@@ -32,7 +34,14 @@ public class DaoTestCase {
 	public DaoTestCase() {
 		   // Do nothing
 		}
-
+	public DaoTestCase(String tkd) {
+		   // Do nothing
+			this();
+		}
+	@Test
+	public void test1() {
+	   assertEquals(2,2);
+	}
 		
 		
 	@Test
@@ -171,7 +180,7 @@ public class DaoTestCase {
 	@Rollback(true)
 	public void testAllUsers() {
 		List<User> usrList = usrImpl.getAllUsers();
-			assertEquals(usrList.size(), 6);
+			assertEquals(usrList.size(), 7);
 	}
 	
 	
@@ -247,7 +256,7 @@ public class DaoTestCase {
 	@Transactional
 	@Rollback(true)
 	public void createProject() {
-		Project prj = new Project("Test Project", new Timestamp(( new java.util.Date()).getTime()), new Timestamp(( new java.util.Date()).getTime()), 1, 1, 323786);
+		Project prj = new Project("Test Project", new Timestamp(( new java.util.Date()).getTime()), new Timestamp(( new java.util.Date()).getTime()), 1, 1, 323786,"Started");
 		System.out.println("Test execution ::"+prj.toString()+""+prj.hashCode());
 		
 		pjImpl.createProject(prj);

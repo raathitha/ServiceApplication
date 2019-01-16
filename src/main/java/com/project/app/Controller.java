@@ -151,6 +151,26 @@ public class Controller {
         }
     }
     
+    /*** taskCount ***/
+
+    @CrossOrigin(origins = "http://localhost:4201")
+    @RequestMapping(value="/taskCount/{id}",method = RequestMethod.GET)
+    public ResponseEntity<String>  getCount(@PathVariable("id") Integer id)
+    {
+    	if (projectDaoImpl.getProjectById(id)==null) {
+            System.out.println("Parent with id " + id + " not found");
+            return new ResponseEntity<String>("No Task", HttpStatus.OK);
+        }else{
+
+        	String count = projectDaoImpl.getNoOfTasks(id);
+        	if(count =="0") {
+        		count = "No Task";
+        	}
+            return new ResponseEntity<String>(count,HttpStatus.OK);
+        }
+    }
+    
+    
     /*** Retrieve all User ***/
 
     @CrossOrigin(origins = "http://localhost:4201")
